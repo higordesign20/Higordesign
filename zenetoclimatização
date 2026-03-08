@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zé Neto Climatização | Especialistas em Ar-Condicionado</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: radial-gradient(circle at 20% 20%, #0a2a3f, #05121c 60%);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== NAVBAR ===== */
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 0;
+    backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 999;
+    transition: 0.4s;
+}
+
+.nav.scrolled {
+    padding: 12px 0;
+    background: rgba(0, 0, 0, 0.65);
+    box-shadow: 0 4px 30px rgba(0, 224, 255, 0.08);
+}
+
+.nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* ===== NAV MENU ===== */
+.nav-menu {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.nav-menu a {
+    padding: 10px 18px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: #b6d1e3;
+    font-weight: 500;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    background: rgba(0, 224, 255, 0.1);
+    border-color: rgba(0, 224, 255, 0.3);
+    color: #00e0ff;
+}
+
+.nav-menu a.active {
+    background: rgba(0, 224, 255, 0.15);
+    border-color: rgba(0, 224, 255, 0.4);
+    color: #00e0ff;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 4px;
+    }
+    
+    .nav-menu a {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+.logo-text {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    background: linear-gradient(90deg, #fff, #00e0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+/* ===== SECTIONS ===== */
+section {
+    padding: 140px 0;
+}
+
+/* ===== HERO ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 224, 255, 0.07) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+    pointer-events: none;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 62px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    background: linear-gradient(90deg, #fff 30%, #00e0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: 38px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    background: linear-gradient(90deg, #fff, #00e0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+h3 {
+    font-family: 'Sora', sans-serif;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+p {
+    color: #b6d1e3;
+    margin: 20px 0;
+    line-height: 1.75;
+    font-size: 15.5px;
+}
+
+/* ===== BOTÃO ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 38px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 255, 255, 0.3);
+    background: rgba(0, 224, 255, 0.1);
+    border-color: rgba(0, 224, 255, 0.4);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, rgba(0, 180, 220, 0.3), rgba(0, 80, 120, 0.3));
+    border-color: rgba(0, 224, 255, 0.35);
+}
+
+/* ===== HERO LOGO ===== */
+.hero-logo {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-logo::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 224, 255, 0.15), transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.hero-logo img {
+    width: 100%;
+    max-width: 480px;
+    filter: drop-shadow(0 40px 80px rgba(0, 255, 255, 0.3));
+    animation: floatLogo 4s ease-in-out infinite;
+    transition: 0.6s;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Placeholder quando não há logo */
+.hero-logo-placeholder {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, rgba(0, 180, 220, 0.25), rgba(0, 40, 80, 0.4));
+    border: 2px solid rgba(0, 224, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: floatLogo 4s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-logo-placeholder svg {
+    width: 140px;
+    height: 140px;
+    opacity: 0.7;
+}
+
+@keyframes floatLogo {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* ===== BADGES / STATS ===== */
+.hero-badges {
+    display: flex;
+    gap: 16px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 50px;
+    background: rgba(0, 224, 255, 0.07);
+    border: 1px solid rgba(0, 224, 255, 0.2);
+    font-size: 13px;
+    font-weight: 600;
+    color: #7ee8fa;
+}
+
+.badge svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* ===== SOBRE EMPRESA ===== */
+.about-company {
+    background: linear-gradient(180deg, #05121c, #071e2c);
+    position: relative;
+}
+
+.about-company-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-highlight {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.highlight-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    padding: 28px 32px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    transition: 0.4s;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.highlight-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 255, 255, 0.12);
+    border-color: rgba(0, 224, 255, 0.2);
+}
+
+.highlight-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(0, 224, 255, 0.1);
+    border: 1px solid rgba(0, 224, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.highlight-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ===== SERVIÇOS ===== */
+.services {
+    background: linear-gradient(180deg, #071e2c, #05121c);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.service-box {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px);
+    padding: 48px 40px;
+    border-radius: 24px;
+    transition: 0.6s cubic-bezier(.22, 1, .36, 1);
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 224, 255, 0.5), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.service-box:hover::before {
+    opacity: 1;
+}
+
+.service-box:hover {
+    transform: rotateX(4deg) rotateY(-4deg) translateY(-12px);
+    box-shadow: 0 40px 80px rgba(0, 255, 255, 0.15);
+    border-color: rgba(0, 224, 255, 0.18);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background: rgba(0, 224, 255, 0.08);
+    border: 1px solid rgba(0, 224, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.service-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* ===== CONTATO ===== */
+.contact {
+    background: linear-gradient(180deg, #05121c, #041018);
+}
+
+.contact-subtitle {
+    color: #9ec6db;
+    margin-bottom: 60px;
+    margin-top: -20px;
+    font-size: 16px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px);
+    padding: 48px 40px;
+    border-radius: 24px;
+    text-decoration: none;
+    color: white;
+    transition: 0.6s cubic-bezier(.22, 1, .36, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+/* Cores específicas por rede */
+.contact-card.email::after     { background: linear-gradient(90deg, #4285F4, #34A853); }
+.contact-card.whatsapp::after  { background: linear-gradient(90deg, #25D366, #128C7E); }
+.contact-card.instagram::after { background: linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+.contact-card:hover::after {
+    opacity: 1;
+}
+
+.contact-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px rgba(0, 255, 255, 0.15);
+}
+
+.contact-card.email:hover     { border-color: rgba(66, 133, 244, 0.35); box-shadow: 0 40px 80px rgba(66, 133, 244, 0.15); }
+.contact-card.whatsapp:hover  { border-color: rgba(37, 211, 102, 0.35); box-shadow: 0 40px 80px rgba(37, 211, 102, 0.15); }
+.contact-card.instagram:hover { border-color: rgba(220, 39, 67, 0.35);  box-shadow: 0 40px 80px rgba(220, 39, 67, 0.12); }
+
+.contact-icon-wrap {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: 0.4s;
+}
+
+.contact-card.email .contact-icon-wrap {
+    background: rgba(66, 133, 244, 0.12);
+    border: 1px solid rgba(66, 133, 244, 0.25);
+}
+
+.contact-card.whatsapp .contact-icon-wrap {
+    background: rgba(37, 211, 102, 0.12);
+    border: 1px solid rgba(37, 211, 102, 0.25);
+}
+
+.contact-card.instagram .contact-icon-wrap {
+    background: rgba(220, 39, 67, 0.12);
+    border: 1px solid rgba(220, 39, 67, 0.25);
+}
+
+.contact-card:hover .contact-icon-wrap {
+    transform: scale(1.1) rotate(-4deg);
+}
+
+.contact-icon-wrap svg {
+    width: 32px;
+    height: 32px;
+}
+
+.contact-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.contact-card.email .contact-label     { color: #6aabff; }
+.contact-card.whatsapp .contact-label  { color: #4cde85; }
+.contact-card.instagram .contact-label { color: #f77; }
+
+.contact-card h3 {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.contact-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #8fb5cc;
+    word-break: break-all;
+}
+
+.contact-arrow {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.contact-card:hover .contact-arrow {
+    opacity: 1;
+    gap: 10px;
+}
+
+.contact-card.email .contact-arrow     { color: #6aabff; }
+.contact-card.whatsapp .contact-arrow  { color: #4cde85; }
+.contact-card.instagram .contact-arrow { color: #f77; }
+
+/* ===== FOOTER ===== */
+.footer {
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 13px;
+    color: #4a6a7a;
+}
+
+/* ===== ANIMAÇÃO SCROLL ===== */
+.hidden {
+    opacity: 0;
+    transform: translateY(60px) scale(0.97);
+    filter: blur(8px);
+    transition: 1s cubic-bezier(.22, 1, .36, 1);
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-logo {
+        order: -1;
+    }
+
+    .hero-logo img,
+    .hero-logo-placeholder {
+        max-width: 260px;
+        width: 260px;
+        height: 260px;
+        margin-bottom: 20px;
+    }
+
+    .about-company-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 { font-size: 42px; }
+    h2 { font-size: 30px; }
+
+    .hero-badges {
+        justify-content: center;
+    }
+
+    .contact-card {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="nav">
+    <div class="container">
+        <div class="logo-text">Zé Neto Climatização</div>
+        <nav class="nav-menu">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        <a href="#contato" class="btn">
+            <!-- ícone WhatsApp mini -->
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Orçamento
+        </a>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="hero hidden">
+    <div class="container hero-grid">
+        <div>
+            <h1>Zé Neto<br>Climatização</h1>
+            <p>
+                Especialistas em limpeza e higienização de ar-condicionado.
+                Garantimos desempenho máximo, economia e qualidade do ar para você e sua família.
+            </p>
+            <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+
+            <div class="hero-badges">
+                <span class="badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00e0ff" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Serviço Certificado
+                </span>
+                <span class="badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00e0ff" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    Atendimento Rápido
+                </span>
+                <span class="badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00e0ff" stroke-width="2"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    Qualidade Garantida
+                </span>
+            </div>
+        </div>
+
+        <div class="hero-logo">
+            <!-- Exibe logo.png se existir, caso contrário mostra ícone SVG de ar-condicionado -->
+            <img src="logo.png" alt="Logo Zé Neto Climatização"
+                 onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+            <div class="hero-logo-placeholder" id="logo-fallback" style="display:none;">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Ar-condicionado SVG -->
+                    <rect x="4" y="16" width="56" height="22" rx="6" fill="rgba(0,224,255,0.15)" stroke="#00e0ff" stroke-width="2"/>
+                    <rect x="8" y="20" width="48" height="14" rx="3" fill="rgba(0,224,255,0.08)"/>
+                    <line x1="14" y1="27" x2="50" y2="27" stroke="#00e0ff" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="14" y1="31" x2="40" y2="31" stroke="#00e0ff" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="50" cy="31" r="3" fill="rgba(0,224,255,0.3)" stroke="#00e0ff" stroke-width="1.5"/>
+                    <!-- Ondas de ar -->
+                    <path d="M20 44 Q24 40 28 44 Q32 48 36 44" stroke="#00e0ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M16 50 Q22 44 28 50 Q34 56 40 50" stroke="#00e0ff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOBRE EMPRESA -->
+<section class="about-company hidden" id="sobre">
+    <div class="container about-company-grid">
+        <div>
+            <h2>Sobre a Empresa</h2>
+            <p>Inaugurada em 2026, nossa empresa nasce com o compromisso de oferecer serviços especializados em limpeza e higienização de ar-condicionado com qualidade, responsabilidade e eficiência.</p>
+            <p>Trabalhamos para garantir mais saúde, bem-estar e desempenho dos equipamentos. A manutenção preventiva melhora a qualidade do ar e aumenta a vida útil do aparelho.</p>
+        </div>
+
+        <div class="about-highlight">
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <!-- Ícone Saúde / Coração -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00e0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3>+ Saúde</h3>
+                    <p style="margin:0;">Ar mais limpo e ambiente mais seguro para toda a família.</p>
+                </div>
+            </div>
+
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <!-- Ícone Economia / Raio -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00e0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3>+ Economia</h3>
+                    <p style="margin:0;">Redução no consumo de energia com equipamento limpo.</p>
+                </div>
+            </div>
+
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <!-- Ícone Durabilidade / Escudo -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00e0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3>+ Durabilidade</h3>
+                    <p style="margin:0;">Maior vida útil do equipamento com manutenção preventiva.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="services hidden" id="servicos">
+    <div class="container">
+        <h2>Nossos Serviços</h2>
+        <div class="services-grid">
+
+            <div class="service-box">
+                <div class="service-icon">
+                    <!-- Ícone Limpeza / Gota -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00e0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/>
+                    </svg>
+                </div>
+                <h3>Limpeza Completa</h3>
+                <p>Desmontagem técnica e higienização profunda de todos os componentes do sistema.</p>
+            </div>
+
+            <div class="service-box">
+                <div class="service-icon">
+                    <!-- Ícone Antibacteriano / Estrela/Vírus -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00e0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                    </svg>
+                </div>
+                <h3>Higienização Antibacteriana</h3>
+                <p>Eliminação de fungos, ácaros e bactérias nocivas para um ar verdadeiramente puro.</p>
+            </div>
+
+            <div class="service-box">
+                <div class="service-icon">
+                    <!-- Ícone Manutenção / Ferramenta -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00e0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+                    </svg>
+                </div>
+                <h3>Manutenção Preventiva</h3>
+                <p>Redução de falhas e aumento da vida útil do equipamento com inspeção técnica completa.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contact hidden" id="contato">
+    <div class="container">
+        <h2>Entre em Contato</h2>
+        <p class="contact-subtitle">Solicite seu orçamento sem compromisso. Respondemos rapidamente!</p>
+
+        <div class="contact-grid">
+
+            <!-- EMAIL -->
+            <a href="mailto:Zeniltonbarbosa59@gmail.com" class="contact-card email">
+                <div class="contact-icon-wrap">
+                    <!-- Gmail / Email SVG oficial -->
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#4285F4"/>
+                    </svg>
+                </div>
+                <span class="contact-label">Email</span>
+                <h3>Envie uma mensagem</h3>
+                <p>Zeniltonbarbosa59@gmail.com</p>
+                <div class="contact-arrow">
+                    Enviar email
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </a>
+
+            <!-- WHATSAPP -->
+            <a href="https://wa.me/553191573272" target="_blank" class="contact-card whatsapp">
+                <div class="contact-icon-wrap">
+                    <!-- WhatsApp SVG oficial -->
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/>
+                    </svg>
+                </div>
+                <span class="contact-label">WhatsApp</span>
+                <h3>Fale pelo WhatsApp</h3>
+                <p>+55 31 9157-3272</p>
+                <div class="contact-arrow">
+                    Abrir conversa
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </a>
+
+            <!-- INSTAGRAM -->
+            <a href="https://www.instagram.com/zeneto_climatizacao/" target="_blank" class="contact-card instagram">
+                <div class="contact-icon-wrap">
+                    <!-- Instagram SVG oficial com gradiente -->
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%"   stop-color="#f09433"/>
+                                <stop offset="25%"  stop-color="#e6683c"/>
+                                <stop offset="50%"  stop-color="#dc2743"/>
+                                <stop offset="75%"  stop-color="#cc2366"/>
+                                <stop offset="100%" stop-color="#bc1888"/>
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#ig-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </div>
+                <span class="contact-label">Instagram</span>
+                <h3>Siga no Instagram</h3>
+                <p>@zeneto_climatizacao</p>
+                <div class="contact-arrow">
+                    Ver perfil
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 Zé Neto Climatização · Todos os direitos reservados</p>
+    </div>
+</footer>
+
+<script>
+// Navbar scroll
+window.addEventListener("scroll", () => {
+    document.querySelector(".nav").classList.toggle("scrolled", window.scrollY > 50);
+});
+
+// Animação de entrada ao rolar
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+
+// Efeito 3D nos cards de serviço ao mover o mouse
+document.querySelectorAll(".service-box").forEach(card => {
+    card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const rotX = ((y - cy) / cy) * 6;
+        const rotY = ((x - cx) / cx) * -6;
+        card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-12px)`;
+    });
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+    });
+});
+</script>
+
+</body>
+</html>
